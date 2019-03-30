@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
-    <title>Amplify Web App Workshop :: Amplify / AppSync / React Workshop</title>
+    <title>Creating a GraphQL API :: Amplify / AppSync / React Workshop</title>
 
     
     <link href="/amplify-photo-gallery-workshop/css/nucleus.css?1553943254" rel="stylesheet">
@@ -44,7 +44,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/amplify-photo-gallery-workshop/">
+  <body class="" data-url="/amplify-photo-gallery-workshop/40_graphql.html">
     <nav id="sidebar" class="">
 
 
@@ -314,8 +314,8 @@
   
     
     <li data-nav-id="/amplify-photo-gallery-workshop/40_graphql.html" title="Creating a GraphQL API" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/amplify-photo-gallery-workshop/40_graphql.html">
@@ -893,6 +893,36 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/amplify-photo-gallery-workshop/'>Amplify Web App Workshop</a> > Creating a GraphQL API
+          
+        
+          
+        
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
 
         
           <div id="chapter">
@@ -902,22 +932,70 @@
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h2 id="build-a-photo-sharing-web-app-br-with-aws-amplify-and-aws-appsync">Build a Photo-Sharing Web App <br/> with AWS Amplify and AWS AppSync</h2>
 
-<h3 id="welcome">Welcome!</h3>
+<h1 id="creating-a-graphql-api">Creating a GraphQL API</h1>
 
-<p style='text-align: left;'>
-    In this workshop, we'll use React to build a data-driven web app that lets users upload to shared, secure photo galleries. We'll use AWS AppSync to get up and running quickly with a GraphQL API that backs our data in Amazon DynamoDB. In addition, we'll demonstrate how to use the AWS Amplify library to authenticate users, communicate with our API, and manage photo uploads. Finally, we add in AI-powered object tagging using Amazon Rekognition, allowing users to discover photos without any manual data entry.
-</p>
-	
+<ul class="children children-li">
+    
+    
+    
+
+    
+        
+    
+        
   
+
+
+<li>
+<a href="/amplify-photo-gallery-workshop/40_graphql/10_setting_up_appsync.html" >Setting Up AppSync</a>
+</li>
+
+
+
+
+
+
+            
+        
+
+        
+            
+
+        
+    
+        
+  
+
+
+<li>
+<a href="/amplify-photo-gallery-workshop/40_graphql/20_trying_out_queries.html" >Trying Out Some Queries</a>
+</li>
+
+
+
+
+
+
+            
+        
+
+        
+            
+
+        
+    
+
+    
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
         
             </div> 
         
@@ -1114,53 +1192,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1175,149 +1206,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1477,6 +1367,198 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -1484,10 +1566,10 @@
 
 
         
-            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html" title="Allowing Other Users To Collaborate In Albums"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/30_adding_auth/20_adding_auth_front.html" title="Rendering the Front End"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/40_graphql/10_setting_up_appsync.html" title="Setting Up AppSync" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -1517,4 +1599,3 @@
 
   </body>
 </html>
-

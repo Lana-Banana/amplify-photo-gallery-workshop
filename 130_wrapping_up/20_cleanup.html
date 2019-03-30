@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
-    <title>Amplify Web App Workshop :: Amplify / AppSync / React Workshop</title>
+    <title>Cleaning Up :: Amplify / AppSync / React Workshop</title>
 
     
     <link href="/amplify-photo-gallery-workshop/css/nucleus.css?1553943254" rel="stylesheet">
@@ -44,7 +44,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/amplify-photo-gallery-workshop/">
+  <body class="" data-url="/amplify-photo-gallery-workshop/130_wrapping_up/20_cleanup.html">
     <nav id="sidebar" class="">
 
 
@@ -715,7 +715,7 @@
   
     
     <li data-nav-id="/amplify-photo-gallery-workshop/130_wrapping_up.html" title="Wrapping Up" class="dd-item 
-        
+        parent
         
         
         ">
@@ -758,7 +758,7 @@
  
   
     
-      <li data-nav-id="/amplify-photo-gallery-workshop/130_wrapping_up/20_cleanup.html" title="Cleaning Up" class="dd-item ">
+      <li data-nav-id="/amplify-photo-gallery-workshop/130_wrapping_up/20_cleanup.html" title="Cleaning Up" class="dd-item active">
         <a href="/amplify-photo-gallery-workshop/130_wrapping_up/20_cleanup.html">
         Cleaning Up
         
@@ -893,33 +893,129 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/amplify-photo-gallery-workshop/'>Amplify Web App Workshop</a> > <a href='/amplify-photo-gallery-workshop/130_wrapping_up.html'>Wrapping Up</a> > Cleaning Up
+          
+        
+          
+        
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#deleting-via-amplify">Deleting via Amplify</a></li>
+<li><a href="#a-small-bit-of-manual-cleanup">A small bit of manual cleanup</a></li>
+<li><a href="#deleting-the-cloud9-workspace">Deleting the Cloud9 Workspace</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>Cleaning Up</h1>
           
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h2 id="build-a-photo-sharing-web-app-br-with-aws-amplify-and-aws-appsync">Build a Photo-Sharing Web App <br/> with AWS Amplify and AWS AppSync</h2>
 
-<h3 id="welcome">Welcome!</h3>
+<h3 id="deleting-via-amplify">Deleting via Amplify</h3>
 
-<p style='text-align: left;'>
-    In this workshop, we'll use React to build a data-driven web app that lets users upload to shared, secure photo galleries. We'll use AWS AppSync to get up and running quickly with a GraphQL API that backs our data in Amazon DynamoDB. In addition, we'll demonstrate how to use the AWS Amplify library to authenticate users, communicate with our API, and manage photo uploads. Finally, we add in AI-powered object tagging using Amazon Rekognition, allowing users to discover photos without any manual data entry.
-</p>
+<p>Amplify can do a pretty good job of removing most of the cloud resources we&rsquo;ve provisioned for this workshop (just by attempting to delete the CloudFormation nested stack it provisioned). However, it will refuse to delete a few items, which we&rsquo;ll manually take care of as well.</p>
+
+<ol>
+<li><p><strong>From the photo-albums directory, run:</strong> <code>amplify delete</code> and press <em>Enter</em> to confirm the deletion.</p></li>
+
+<li><p><strong>Wait</strong> a few minutes while Amplify deletes most of our resources.</p></li>
+</ol>
+
+<h3 id="a-small-bit-of-manual-cleanup">A small bit of manual cleanup</h3>
+
+<p>At this point, if you open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks" target="_blank">CloudFormation stacks console</a> and click on the various stacks that show a status of &lsquo;DELETE FAILED&rsquo;, you can see what failed to delete and why.</p>
+
+<p>The Authenticated users IAM role failed to delete because it won&rsquo;t delete while there were still policies associated with it when CloudFormation tried to delete it.  However, at this point, all the policies should now be deleted, so another attempt at deleting the stack should succeed.</p>
+
+<ol>
+<li><p><strong>Select our stack</strong> that failed to delete</p></li>
+
+<li><p><strong>Click Actions</strong></p></li>
+
+<li><p>Select <strong>Delete Stack</strong></p></li>
+
+<li><p>Leave the Auth Role <strong>un-checked</strong> and click <strong>Yes, Delete</strong></p></li>
+
+<li><p>Wait a moment and see if the delete succeeds. If not, you can always go to the <a href="https://console.aws.amazon.com/iam/home?#/roles" target="_blank">IAM Roles console</a>, search for the role (it will start with &lsquo;photoalbums&rsquo;), then select and delete it.</p></li>
+</ol>
+
+<p>The S3 Buckets that Amplify created will not be automatically deleted. To delete these buckets:</p>
+
+<ol>
+<li><p>Open the <a href="https://s3.console.aws.amazon.com/s3/home?region=us-east-1" target="_blank">S3 console</a></p></li>
+
+<li><p>Click the <strong>Date created</strong> column to sort the buckets with the newest ones on top</p></li>
+
+<li><p>For each <em>photoalbums*</em> bucket, click it&rsquo;s row (not the name itself), click the <strong>Delete bucket</strong> button, then copy/paste the bucket name to confirm the deletion.</p></li>
+</ol>
+
+<h3 id="deleting-the-cloud9-workspace">Deleting the Cloud9 Workspace</h3>
+
+<ol>
+<li><p>Go to your <a href="https://us-east-1.console.aws.amazon.com/cloud9/home?region=us-east-1" target="_blank">Cloud9 Environment</a></p></li>
+
+<li><p>Select the environment named <strong>workshop</strong> and pick <strong>Delete</strong></p></li>
+
+<li><p><strong>Type the phrase</strong> &lsquo;Delete&rsquo; into the confirmation box and click <strong>Delete</strong></p></li>
+</ol>
+
+
+<footer class=" footline" >
 	
-  
-        
-            </div> 
+</footer>
+
+
         
         </div> 
         
@@ -1415,6 +1511,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1434,6 +1531,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -1484,10 +1584,10 @@
 
 
         
-            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html" title="Allowing Other Users To Collaborate In Albums"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/130_wrapping_up/10_what_we_built.html" title="Congratulations!"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/140_bonus.html" title="Bonus Content" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

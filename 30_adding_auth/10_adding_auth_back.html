@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
-    <title>Amplify Web App Workshop :: Amplify / AppSync / React Workshop</title>
+    <title>Setting Up the Back End :: Amplify / AppSync / React Workshop</title>
 
     
     <link href="/amplify-photo-gallery-workshop/css/nucleus.css?1553943254" rel="stylesheet">
@@ -44,7 +44,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/amplify-photo-gallery-workshop/">
+  <body class="" data-url="/amplify-photo-gallery-workshop/30_adding_auth/10_adding_auth_back.html">
     <nav id="sidebar" class="">
 
 
@@ -244,7 +244,7 @@
   
     
     <li data-nav-id="/amplify-photo-gallery-workshop/30_adding_auth.html" title="Adding Authentication" class="dd-item 
-        
+        parent
         
         
         ">
@@ -268,7 +268,7 @@
  
   
     
-      <li data-nav-id="/amplify-photo-gallery-workshop/30_adding_auth/10_adding_auth_back.html" title="Setting Up the Back End" class="dd-item ">
+      <li data-nav-id="/amplify-photo-gallery-workshop/30_adding_auth/10_adding_auth_back.html" title="Setting Up the Back End" class="dd-item active">
         <a href="/amplify-photo-gallery-workshop/30_adding_auth/10_adding_auth_back.html">
         Setting Up the Back End
         
@@ -893,33 +893,139 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/amplify-photo-gallery-workshop/'>Amplify Web App Workshop</a> > <a href='/amplify-photo-gallery-workshop/30_adding_auth.html'>Adding Authentication</a> > Setting Up the Back End
+          
+        
+          
+        
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#initializing-amplify">Initializing Amplify</a></li>
+<li><a href="#adding-authentication">Adding authentication</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>Setting Up the Back End</h1>
           
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h2 id="build-a-photo-sharing-web-app-br-with-aws-amplify-and-aws-appsync">Build a Photo-Sharing Web App <br/> with AWS Amplify and AWS AppSync</h2>
 
-<h3 id="welcome">Welcome!</h3>
+<p>Now that we have a simple React app, let&rsquo;s let users sign up and sign in to our app. They won&rsquo;t be able to do anything yet, but it will be helpful to have this in place so that when we add in the ability to query our backend API, we&rsquo;ll know which users are accessing our system.</p>
 
-<p style='text-align: left;'>
-    In this workshop, we'll use React to build a data-driven web app that lets users upload to shared, secure photo galleries. We'll use AWS AppSync to get up and running quickly with a GraphQL API that backs our data in Amazon DynamoDB. In addition, we'll demonstrate how to use the AWS Amplify library to authenticate users, communicate with our API, and manage photo uploads. Finally, we add in AI-powered object tagging using Amazon Rekognition, allowing users to discover photos without any manual data entry.
-</p>
+<div class="notices info" >
+The AWS Amplify CLI makes it easy for us to add cloud capabilities to our web and mobile apps, with SDKs available for React and React Native, iOS, and Android. To get started, we'll create a new application and enable user authentication. We'll then wire things up in our app using the open-source [AWS Amplify](https://aws-amplify.github.io/) JavaScript library, which the AWS Amplify CLI will take care of configuring for us; all we have to do is use it in our React app. AWS Amplify contains some nice abstractions for working with cloud services, and it has some helpful React components we'll use in our app.
+</div>
+
+<p>Here&rsquo;s what the sign-in screen will look like:
+<img src="/images/app-signin-screen.png?classes=border" alt="Here's what the sign-in screen looks like" /></p>
+
+<h3 id="initializing-amplify">Initializing Amplify</h3>
+
+<p><strong>On the command line, in the photo-albums directory</strong>:</p>
+
+<ol>
+<li><p><strong>Be sure to be in photo-albums directory</strong> <code>cd photo-albums</code></p></li>
+
+<li><p><strong>Run</strong> <code>amplify init</code></p></li>
+
+<li><p><strong>Press <em>Enter</em></strong> to accept the default project name &lsquo;photo-albums&rsquo;</p></li>
+
+<li><p><strong>Enter &lsquo;dev&rsquo;</strong> for the environment name</p></li>
+
+<li><p><strong>Select &lsquo;None&rsquo;</strong> for the default editor (we&rsquo;re using Cloud9)</p></li>
+
+<li><p><strong>Choose JavaScript and React</strong> when prompted</p></li>
+
+<li><p><strong>Accept the default values</strong> for paths and build commands</p></li>
+
+<li><p><strong>Select the default profile</strong> when prompted</p></li>
+</ol>
+
+<p><img src="/images/amplify_init.png" alt="amplify init" /></p>
+
+<div class="notices info" >
+This will create a new local configuration for us which we can use to set up an [Amazon Cognito](https://aws.amazon.com/cognito/) User Pool to act as the backend for letting users sign up and sign in. (More about Amazon Cognito and what a User Pool is below.) If you want to read more about this step, take a look at the 'Installation and Configuration' steps from the [AWS Amplify Authentication guide](https://aws-amplify.github.io/amplify-js/media/authentication_guide.html).
+</div>
+
+<h3 id="adding-authentication">Adding authentication</h3>
+
+<ol>
+<li><p><strong>Run</strong> <code>amplify add auth</code> to add authentication to the app</p></li>
+
+<li><p><strong>Select Yes</strong> when asked if you&rsquo;d like to use the default authentication and security configuration</p></li>
+
+<li><p><strong>Run</strong> <code>amplify push</code> to create these changes in the cloud</p></li>
+
+<li><p>Wait for the provisioning to complete. This will take a few minutes.</p></li>
+</ol>
+
+<div class="notices info" >
+The Amplify CLI will take care of provisioning the appropriate cloud resources and it will update src/aws-exports.js with all of the configuration data we need to be able to use the cloud resources in our app.
+</div>
+
+<p>Congratulations! You&rsquo;ve just created a serverless backend for user registration and authorization capable of scaling to millions of users with Amazon Cognito.</p>
+
+<div class="notices tip" >
+Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. We just made a User Pool, which is a secure user directory that will let our users sign in with the username and password pair they create during registration. Amazon Cognito (and the Amplify CLI) also supports configuring sign-in with social identity providers, such as Facebook, Google, and Amazon, and enterprise identity providers via SAML 2.0. If you'd like to learn more, we have a lot more information on the [Amazon Cognito Developer Resources page](https://aws.amazon.com/cognito/dev-resources/) as well as the [AWS Amplify Authentication documentation.](https://aws-amplify.github.io/amplify-js/media/authentication_guide#federated-identities-social-sign-in)
+</div>
+
+
+<footer class=" footline" >
 	
-  
-        
-            </div> 
+</footer>
+
+
         
         </div> 
         
@@ -1079,53 +1185,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1142,6 +1201,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1169,150 +1231,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1477,6 +1395,198 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -1484,10 +1594,10 @@
 
 
         
-            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html" title="Allowing Other Users To Collaborate In Albums"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/30_adding_auth.html" title="Adding Authentication"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/30_adding_auth/20_adding_auth_front.html" title="Rendering the Front End" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

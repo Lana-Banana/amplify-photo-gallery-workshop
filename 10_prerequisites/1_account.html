@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/amplify-photo-gallery-workshop/images/favicon.png" type="image/x-icon" />
-    <title>Amplify Web App Workshop :: Amplify / AppSync / React Workshop</title>
+    <title>AWS account 생성하기 :: Amplify / AppSync / React Workshop</title>
 
     
     <link href="/amplify-photo-gallery-workshop/css/nucleus.css?1553943254" rel="stylesheet">
@@ -44,7 +44,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/amplify-photo-gallery-workshop/">
+  <body class="" data-url="/amplify-photo-gallery-workshop/10_prerequisites/1_account.html">
     <nav id="sidebar" class="">
 
 
@@ -85,7 +85,7 @@
   
     
     <li data-nav-id="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비" class="dd-item 
-        
+        parent
         
         
         ">
@@ -109,7 +109,7 @@
  
   
     
-      <li data-nav-id="/amplify-photo-gallery-workshop/10_prerequisites/1_account.html" title="AWS account 생성하기" class="dd-item ">
+      <li data-nav-id="/amplify-photo-gallery-workshop/10_prerequisites/1_account.html" title="AWS account 생성하기" class="dd-item active">
         <a href="/amplify-photo-gallery-workshop/10_prerequisites/1_account.html">
         AWS account 생성하기
         
@@ -893,33 +893,95 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/amplify-photo-gallery-workshop/'>Amplify Web App Workshop</a> > <a href='/amplify-photo-gallery-workshop/10_prerequisites.html'>Workshop 사전준비</a> > AWS account 생성하기
+          
+        
+          
+        
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>AWS account 생성하기</h1>
           
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
+<div class="notices warning" >
+ Workshop에서 사용하고자 하는 AWS 계정은 새로운 IAM 역할을 만들수 있어야 하고 다른 IAM 권한 범위를 지정할 수 있어야 합니다.
+</div>
+
+<div class="notices tip" >
+이미 AWS 계정을 가지고 있고, IAM 관리자 접속 권한이 있다면 이 페이지를 넘어가도 좋습니다.
+</div>
+
+<ol>
+<li><p><strong>관리자 접속 권한 계정이 없다면</strong>: <a href="https://aws.amazon.com/getting-started/" target="_blank">새로 하나 만듭시다.</a></p></li>
+
+<li><p>AWS 계정을 가지게 되었다면, 남은 워크샵 단계를 잘 따르고 있는 확인해보세요.<br />
+AWS 계정에 대한 관리자 권한이 있는 <strong>IAM user</strong> :
+<a href="https://console.aws.amazon.com/iam/home?region=us-east-1#/users$new" target="_blank">워크샵에서 사용할 IAM user를 만듭니다.</a></p></li>
+
+<li><p>사용자 상세정보를 입력합니다.:
+<img src="/images/iam-1-create-user.png" alt="Create User" /></p></li>
+
+<li><p>AdministratorAccess IAM 정책 연결:
+<img src="/images/iam-2-attach-policy.png" alt="Attach Policy" /></p></li>
+
+<li><p>create the new user 클릭:
+<img src="/images/iam-3-create-user.png" alt="Confirm User" /></p></li>
+
+<li><p>Take note of the login URL and save:
+<img src="/images/iam-4-save-url.png" alt="Login URL" /></p></li>
+</ol>
 
 
-<h2 id="build-a-photo-sharing-web-app-br-with-aws-amplify-and-aws-appsync">Build a Photo-Sharing Web App <br/> with AWS Amplify and AWS AppSync</h2>
-
-<h3 id="welcome">Welcome!</h3>
-
-<p style='text-align: left;'>
-    In this workshop, we'll use React to build a data-driven web app that lets users upload to shared, secure photo galleries. We'll use AWS AppSync to get up and running quickly with a GraphQL API that backs our data in Amazon DynamoDB. In addition, we'll demonstrate how to use the AWS Amplify library to authenticate users, communicate with our API, and manage photo uploads. Finally, we add in AI-powered object tagging using Amazon Rekognition, allowing users to discover photos without any manual data entry.
-</p>
+<footer class=" footline" >
 	
-  
-        
-            </div> 
+</footer>
+
+
         
         </div> 
         
@@ -967,21 +1029,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -999,37 +1046,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1169,150 +1187,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1477,6 +1351,198 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -1484,10 +1550,10 @@
 
 
         
-            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html" title="Allowing Other Users To Collaborate In Albums"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/10_prerequisites.html" title="Workshop 사전준비" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/amplify-photo-gallery-workshop/10_prerequisites/10_workspace.html" title="Cloud9 Workspace 생성하기" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
