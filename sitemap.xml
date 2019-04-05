@@ -39,11 +39,11 @@
   </url>
   
   <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/30_adding_auth/10_adding_auth_back.html</loc>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/20_getting_started/10_what_we_will_build.html</loc>
   </url>
   
   <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/20_getting_started/10_what_we_will_build.html</loc>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/30_adding_auth/10_adding_auth_back.html</loc>
   </url>
   
   <url>
@@ -55,10 +55,6 @@
   </url>
   
   <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/20_getting_started/20_bootstrapping_the_app.html</loc>
-  </url>
-  
-  <url>
     <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/130_wrapping_up/20_cleanup.html</loc>
   </url>
   
@@ -67,15 +63,7 @@
   </url>
   
   <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/20_getting_started.html</loc>
-  </url>
-  
-  <url>
     <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/110_ai/20_prep_for_searching.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/30_adding_auth/20_adding_auth_front.html</loc>
   </url>
   
   <url>
@@ -87,11 +75,23 @@
   </url>
   
   <url>
-    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/30_adding_auth.html</loc>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/20_getting_started.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/20_getting_started/20_bootstrapping_the_app.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/30_adding_auth/20_adding_auth_front.html</loc>
   </url>
   
   <url>
     <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/amp/60_managing_photos/30_adding_storage.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://awskrug.github.io/amplify-photo-gallery-workshop/30_adding_auth.html</loc>
   </url>
   
   <url>
