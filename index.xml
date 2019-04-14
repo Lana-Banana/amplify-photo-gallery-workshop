@@ -16,19 +16,32 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/10_%EC%82%AC%EC%A0%84%EC%A4%80%EB%B9%84/1_account.html</guid>
-      <description>Workshop에서 사용하고자 하는 AWS 계정은 새로운 IAM 역할을 만들수 있어야 하고 다른 IAM 권한 범위를 지정할 수 있어야 합니다.  이미 AWS 계정을 가지고 있고, IAM 관리자 접속 권한이 있다면 이 페이지를 넘어가도 좋습니다.   관리자 접속 권한 계정이 없다면: 새로 하나 만듭시다.
+      <description>Workshop에서 사용하고자 하는 AWS 계정은 새로운 IAM 역할을 만들수 있어야 하고 다른 IAM 권한 범위를 지정할 수 있어야 합니다.
+ 이미 AWS 계정을 가지고 있고, IAM 관리자 접속 권한이 있다면 이 페이지를 넘어가도 좋습니다.
+  관리자 접속 권한 계정이 없다면: 새로 하나 만듭시다.
  AWS 계정을 가지게 되었다면, 남은 워크샵 단계를 잘 따르고 있는 확인해보세요.
 AWS 계정에 대한 관리자 권한이 있는 IAM user : 워크샵에서 사용할 IAM user를 만듭니다.</description>
     </item>
     
     <item>
-      <title>Managing Albums</title>
+      <title>앨범 관리</title>
       <link>https://awskrug.github.io/amplify-photo-gallery-workshop/50_working_with_albums/5_managing_albums.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/50_working_with_albums/5_managing_albums.html</guid>
-      <description>At this point, we have a web app that authenticates users and a secure GraphQL API endpoint that lets us create and read Album data. It&amp;rsquo;s time to connect the two together!
-As we saw above, [AWS Amplify](https://aws.github.io/aws-amplify/) is an open source JavaScript library that makes it very easy to integrate a number of cloud services into your web or React Native apps. We&#39;ll start by using its [Connect React component](https://aws-amplify.</description>
+      <description>이 시점에서 사용자를 인증하는 웹 앱과 앨범 데이터를 만들고 읽을 수있는 안전한 GraphQL API 엔드 포인트가 있습니다. 이제 둘을 연결하는 시간입니다!
+위에서 보았 듯이 AWS Amplify는 웹 또는 React Native 앱에 다수의 클라우드 서비스를 통합하기가 쉬운 오픈 소스 JavaScript 라이브러리입니다. 먼저 Connect React 구성 요소를 사용하여 GraphQL API를 자동으로 쿼리하고 React 구성 요소에 대한 데이터를 제공합니다. 렌더링 할 때 사용합니다. 
+Amplify CLI는 이미 src/aws-exports.js 파일에 AppSync API와 통신하기 위해 Amplify JS 라이브러리에 전달해야하는 모든 구성이 포함되어 있는지 확인했습니다.</description>
+    </item>
+    
+    <item>
+      <title>Amazon Rekognition 연동하기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/10_rekognition.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/10_rekognition.html</guid>
+      <description>직접 태깅하지 않은 이미지도 검색할 수 있으면 좋겠습니다. 다행이 Amazon Rekognition 덕분에 이 기능을 추가하기는 매우 쉽습니다. 사진을 주면 해당 이미지에 적절한 레이블로 응답하는 DetectLabels API를 사용할 수 있습니다. 완벽합니다!
+Amazon Rekognition의 DetectLabels 간략 정리  입력한 이미지를 base64 인코딩한 이미지 바이트열이나 Amazon S3 버킷에 이미지 참조로 전달합니다. AWS CLI로 Amazon Rekognition 작업을 호출하는 경우 이미지 바이트열을 전달하는 기능은 지원하지 않습니다. 이미지는 PNG 또는 JPEG 형식의 파일이어야 합니다.  API는 각 개체와 장면과 컨셉에 따라 하나 이상의 레이블을 반환합니다.</description>
     </item>
     
     <item>
@@ -38,7 +51,8 @@ As we saw above, [AWS Amplify](https://aws.github.io/aws-amplify/) is an open so
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/40_graphql/10_setting_up_appsync.html</guid>
       <description>이제 인증된 사용자를 가지고 앨범을 만들기 위한 API를 만들어 봅시다. 이 앨범에는 아직 사진이 없고 단순히 이름과 앨범을 생성한 사용자 이름만 있을 것입니다.
-[AWS AppSync](https://aws.amazon.com/appsync/)를 사용하여 API를 구현하고, 데이터 기반 어플리케이션을 구현하기 위하여 관리형 GraphQL 서비스를 사용합니다. 아직 GraphQL이 익숙하지 않다면 워크샵 단계를 진행하기 전에 시간을 내어 다음 자료를 살펴 보세요. [https://graphql.github.io/learn/](https://graphql.github.io/learn/) 단계를 계속하는 동안에도 질문이 생긴다면 위 자료를 참조하시기 바랍니다.  AWS AppSync API 추가하기 photo-albums 디렉토리에서 다음 명령어를 수행하세요 amplify add api</description>
+AWS AppSync를 사용하여 API를 구현하고, 데이터 기반 어플리케이션을 구현하기 위하여 관리형 GraphQL 서비스를 사용합니다. 아직 GraphQL이 익숙하지 않다면 워크샵 단계를 진행하기 전에 시간을 내어 다음 자료를 살펴 보세요. https://graphql.github.io/learn/ 단계를 계속하는 동안에도 질문이 생긴다면 위 자료를 참조하시기 바랍니다.
+ AWS AppSync API 추가하기 photo-albums 디렉토리에서 다음 명령어를 수행하세요 amplify add api</description>
     </item>
     
     <item>
@@ -52,33 +66,13 @@ The Cloud9의 작업영역은 AWS root 계정이 아닌, Administrator 권한�
     </item>
     
     <item>
-      <title>Creating a Photo Processor Lambda function</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/10_creating_a_photo_processor_lambda.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/10_creating_a_photo_processor_lambda.html</guid>
-      <description>Let&amp;rsquo;s make a photo processor lambda function so that we can resize our photos.
-When following the instructions below, **you must name your lambda function _workshopphotoprocessor_**.   Later, we&#39;ll edit some CloudFormation templates, and the function name **workshopphotoprocessor** is hard coded to make it easier for this workshop (less edits that you&#39;ll have to do).   From the photo-albums directory, run: amplify function add and respond to the prompts the same way as shown below.</description>
-    </item>
-    
-    <item>
-      <title>Integrating Amazon Rekognition</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/10_rekognition.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/10_rekognition.html</guid>
-      <description>It would be great if we could find images without having to manually tag them with descriptions of their contents. Luckily, adding this feature is pretty easy thanks to Amazon Rekognition. We can use the DetectLabels API &amp;ndash; if we give it a photo, it will respond with a list of appropriate labels for the image. Perfect!
-**Amazon Rekognition&#39;s DetectLabels Quick Summary**  You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.</description>
-    </item>
-    
-    <item>
-      <title>Making a Lightbox for Viewing Fullsize Photos</title>
+      <title>LIGHTBOX 만들어 전체 크기의 사진들 보기</title>
       <link>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/10_lightbox_photos.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/10_lightbox_photos.html</guid>
-      <description>One thing we haven&amp;rsquo;t yet addressed in our app is adding the ability for users to click on a photo thumbnail to see a larger version of the photo. Since we already have the fullsize and the thumbnail data available to query from our API, all we need to do is update our front end application with a few more lines of code.
-Updating the front end Replace photo-albums/src/App.js with the following updated version: // photo-albums/src/App.</description>
+      <description>아직 우리는 유저가 앱에서 썸네일을 클릭하여 더 큰 사진을 볼 수 있도록 하는 기능을 다루지 않았습니다. 이미 우리는 API로부터 전체 크기와 썸네일 크기의 데이터 모두를 가지고 올 수 있기 때문에, 프런트엔드 앱에 몇줄 정도 코드를 추가하는 것 만으로도 이 기능을 제공할 수 있습니다.
+프런트엔드 수정하기 아래의 수정된 버전으로 photo-albums/src/App.js를 대체 해 주세요: // photo-albums/src/App.js  import React, { Component } from &amp;#39;react&amp;#39;; import {BrowserRouter as Router, Route, NavLink} from &amp;#39;react-router-dom&amp;#39;; import { Container, Divider, Form, Grid, Header, Input, List, Modal, Segment } from &amp;#39;semantic-ui-react&amp;#39;; import {v4 as uuid} from &amp;#39;uuid&amp;#39;; import { Connect, S3Image, withAuthenticator } from &amp;#39;aws-amplify-react&amp;#39;; import Amplify, { API, graphqlOperation, Storage } from &amp;#39;aws-amplify&amp;#39;; import aws_exports from &amp;#39;.</description>
     </item>
     
     <item>
@@ -102,7 +96,19 @@ Updating the front end Replace photo-albums/src/App.js with the following update
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/30_adding_auth/10_adding_auth_back.html</guid>
       <description>이제 우리에게 간단한 리액트 앱이 있으니, 앱으로 사용자 등록하고 로그인하도록 만들겠습니다. 지금 아무 것도 할 수 없지만 백엔드 API에 조회하는 기능을 추가하면 어떤 사용자가 우리 시스템을 사용하는지 알 수 있습니다.
-AWS Amplify CLI는 리엑트와 리엑트 네이티브용 iOS와 안드로이드에 SDK를 제공하여 웹과 모바일 앱에 클라우드 기능을 손쉽게 추가할 수 있습니다. 시작을 위해 새 애플리케이션을 만들고 사용자 인증을 가능토록 합니다. 앱에 AWS Amplify CLI로 구성하여 앱과 오픈소스 [AWS Amplify](https://aws-amplify.github.io/) 라이브러리를 연결합니다. 이제 해야 할 것은 리액트 앱에서 이것을 사용하면 됩니다.</description>
+AWS Amplify CLI는 리엑트와 리엑트 네이티브용 iOS와 안드로이드에 SDK를 제공하여 웹과 모바일 앱에 클라우드 기능을 손쉽게 추가할 수 있습니다. 시작을 위해 새 애플리케이션을 만들고 사용자 인증을 가능토록 합니다. 앱에 AWS Amplify CLI로 구성하여 앱과 오픈소스 AWS Amplify 라이브러리를 연결합니다. 이제 해야 할 것은 리액트 앱에서 이것을 사용하면 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>사진을 처리하는 람다 함수 만들기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/10_creating_a_photo_processor_lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/10_creating_a_photo_processor_lambda.html</guid>
+      <description>사진 처리 람다 함수를 만들어서 사진을 리사이즈 할 수 있게 합니다.
+아래 지시를 따를 때에 람다 함수명을 반드시 workshopphotoprocessor 으로 합니다.   이후에 몇가지 클라우드 포메이션 템플릿을 수정하고, 이름이 workshopphotoprocessor인 함수는 이번 워크샵을 위해 하드 코딩합니다(꼭 수정할 부분을 줄이기 위해)
+  photo-albums 디렉토리에서 amplify function add를 실행해서 아래 보여진 것과 비슷한 방식으로 프롬프트에 답합니다. 두번째 단계를 계속하기 전에 엔터를 꼭 눌러야 합니다.
+$ amplify function add Using service: Lambda, provided by: awscloudformation ?</description>
     </item>
     
     <item>
@@ -123,37 +129,6 @@ AWS Amplify CLI는 리엑트와 리엑트 네이티브용 iOS와 안드로이드
     </item>
     
     <item>
-      <title>Allowing Other Users To Collaborate In Albums</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html</guid>
-      <description>We can take advantage of the fact that multiple users can sign in to our app and add the ability for other people view and upload to our albums on a case-by-case basis.
-The simplest way to do this is to have each album contain a set of usernames that are allowed to view and upload photos to it. Let&amp;rsquo;s see how we can make this work.
-Updating the backend Amplify supports multiple authorization declarations on the @model types in our GraphQL Schema.</description>
-    </item>
-    
-    <item>
-      <title>Connecting the photos bucket to the processor function</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/20_connecting_the_lambda_to_the_bucket.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/20_connecting_the_lambda_to_the_bucket.html</guid>
-      <description>Triggering the function when new photos are uploaded to the S3 bucket Now that we&amp;rsquo;ve created our Photo Processor function, we need to set up a trigger for it to run. Since we want to process every photo that gets uploaded to an album, we&amp;rsquo;ll make these changes by updating the configuration of the S3 userfiles bucket that Amplify created for us.
- Replace photo-albums/amplify/backend/storage/photoalbumsstorage/s3-cloudformation-template.json with the following: { &amp;#34;AWSTemplateFormatVersion&amp;#34;: &amp;#34;2010-09-09&amp;#34;, &amp;#34;Description&amp;#34;: &amp;#34;S3 resource stack creation using Amplify CLI&amp;#34;, &amp;#34;Parameters&amp;#34;: { &amp;#34;bucketName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authPolicyName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthPolicyName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authRoleName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthRoleName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthPermissions&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authPermissions&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;env&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }  }, &amp;#34;Conditions&amp;#34;: { &amp;#34;ShouldNotCreateEnvResources&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;env&amp;#34; }, &amp;#34;NONE&amp;#34; ] }, &amp;#34;EnableUnauthReadWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;rw&amp;#34; ] }, &amp;#34;EnableUnauthRead&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;r&amp;#34; ] }, &amp;#34;EnableUnauthWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;w&amp;#34; ] }, &amp;#34;EnableAuthReadWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;rw&amp;#34; ] }, &amp;#34;EnableAuthRead&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;r&amp;#34; ] }, &amp;#34;EnableAuthWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;w&amp;#34; ] } }, &amp;#34;Resources&amp;#34;: { &amp;#34;InvokePhotoProcessorLambda&amp;#34;: { &amp;#34;Type&amp;#34; : &amp;#34;AWS::Lambda::Permission&amp;#34;, &amp;#34;Properties&amp;#34; : { &amp;#34;Action&amp;#34; : &amp;#34;lambda:InvokeFunction&amp;#34;, &amp;#34;FunctionName&amp;#34; : &amp;#34;workshopphotoprocessor&amp;#34;, &amp;#34;Principal&amp;#34; : &amp;#34;s3.</description>
-    </item>
-    
-    <item>
-      <title>Making Photos Searchable</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/20_prep_for_searching.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/20_prep_for_searching.html</guid>
-      <description>Updating the GraphQL Schema Now that we are storing labels for each photo, we&amp;rsquo;re ready to move on and expose this data via our AppSync API.
-While it&amp;rsquo;s possible to perform some level of searching via DynamoDB Query operations, a more flexible and performant approach is to use the Amazon Elasticsearch Service to index data and handle our search queries. Fortunately, the Amplify CLI makes creating an Amazon Elasticsearch Service endpoint, and connecting it to our app&amp;rsquo;s data, very easy.</description>
-    </item>
-    
-    <item>
       <title>Querie 수행하기</title>
       <link>https://awskrug.github.io/amplify-photo-gallery-workshop/40_graphql/20_trying_out_queries.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -162,9 +137,20 @@ While it&amp;rsquo;s possible to perform some level of searching via DynamoDB Qu
       <description>AWS Console로 접근하여 photoalbums API를 클릭합니다. 이제 API를 파고들어봅시다.
  Link to AWS AppSync web console in Northern Virgina
  Link to AWS AppSync web console in Ireland
- 
-왼쪽 사이드바에 있는 Queries를 클릭합니다.
-AWS AppSync의 대화형 쿼리 실행 영역인 이곳에서 쿼리를 작성하거나 변경하고, 쿼리를 실행하여 결과를 볼 수 있습니다. 이는 Resolver들이 우리가 예상한 대로 잘 작동하는지 테스트하기 위한 좋은 방법입니다.  AppSync 인증 쿼리를 실행하기 전에 사용자 인증이 필요합니다.</description>
+  왼쪽 사이드바에 있는 Queries를 클릭합니다.
+AWS AppSync의 대화형 쿼리 실행 영역인 이곳에서 쿼리를 작성하거나 변경하고, 쿼리를 실행하여 결과를 볼 수 있습니다. 이는 Resolver들이 우리가 예상한 대로 잘 작동하는지 테스트하기 위한 좋은 방법입니다.
+ AppSync 인증 쿼리를 실행하기 전에 사용자 인증이 필요합니다.</description>
+    </item>
+    
+    <item>
+      <title>다른 유저와 앨범 공유하기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/140_bonus/20_album_membership.html</guid>
+      <description>다수의 유저가 우리의 애플리케이션으로 접속할 수 있다는 장점을 이용하여 다른 유저들이 상황에 따라 우리의 앨범을 보고 업로드 할 수 있는 기능을 넣을 수 있습니다.
+가장 쉬운 방법은 각각의 앨범에 유저들의 이름(usernames)을 포함하여 그들이 이 앨범 보고 새로운 사진을 업로드할 수 있도록 하는 것입니다.
+백엔드 수정하기 Amplify는 GraphQL 스키마 안의 @model 타입에서 여러 개의 권한 선언을 지원합니다. 우리는 두 번째 권한 규칙을 추가함으로서 Album의 members 필드에 있는 유저가 해당 레코드를 볼 수 있게 할 수 있습니다.</description>
     </item>
     
     <item>
@@ -177,6 +163,27 @@ AWS AppSync의 대화형 쿼리 실행 영역인 이곳에서 쿼리를 작성�
  photo-albums 디렉토리에서 amplify delete를 실행하고 삭제를 확인하기 위해 *Enter*키를 누릅니다.
  Amplify가 리소스들을 삭제하는 동안 기다립니다.
   수동으로 일부 삭제하기 이제 CloudFormation stacks console로 이동해서 &amp;lsquo;DELETE FAILED&amp;rsquo;상태표시를 나타내는 몇개의 스택들을 클릭합니다. 귀하께서는 삭제실패된 원인과 무엇이 실패되었는지를 보실 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>사진 버킷을 처리함수와 연결하기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/20_connecting_the_lambda_to_the_bucket.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/70_generating_thumbnails/20_connecting_the_lambda_to_the_bucket.html</guid>
+      <description>새 사진이 S3 버킷에 업로드된 후에 함수 동작시키기 사진 처리 함수를 만들었으니 이제는 함수를 실행하는 트리거를 설정해야합니다. 앨범에 업로드된 모든 사진을 처리해야 하기 때문에, Amplify로 생성한 S3 사용자 파일 버킷의 구성을 수정하여 이러한 변경 작업을 수행합니다.
+ photo-albums/amplify/backend/storage/photoalbumsstorage/s3-cloudformation-template.json 파일을 다음 내용으로 변경해주십시요. { &amp;#34;AWSTemplateFormatVersion&amp;#34;: &amp;#34;2010-09-09&amp;#34;, &amp;#34;Description&amp;#34;: &amp;#34;S3 resource stack creation using Amplify CLI&amp;#34;, &amp;#34;Parameters&amp;#34;: { &amp;#34;bucketName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authPolicyName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthPolicyName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authRoleName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthRoleName&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;unauthPermissions&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;authPermissions&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }, &amp;#34;env&amp;#34;: { &amp;#34;Type&amp;#34;: &amp;#34;String&amp;#34; }  }, &amp;#34;Conditions&amp;#34;: { &amp;#34;ShouldNotCreateEnvResources&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;env&amp;#34; }, &amp;#34;NONE&amp;#34; ] }, &amp;#34;EnableUnauthReadWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;rw&amp;#34; ] }, &amp;#34;EnableUnauthRead&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;r&amp;#34; ] }, &amp;#34;EnableUnauthWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;unauthPermissions&amp;#34; }, &amp;#34;w&amp;#34; ] }, &amp;#34;EnableAuthReadWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;rw&amp;#34; ] }, &amp;#34;EnableAuthRead&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;r&amp;#34; ] }, &amp;#34;EnableAuthWrite&amp;#34;: { &amp;#34;Fn::Equals&amp;#34;: [ { &amp;#34;Ref&amp;#34;: &amp;#34;authPermissions&amp;#34; }, &amp;#34;w&amp;#34; ] } }, &amp;#34;Resources&amp;#34;: { &amp;#34;InvokePhotoProcessorLambda&amp;#34;: { &amp;#34;Type&amp;#34; : &amp;#34;AWS::Lambda::Permission&amp;#34;, &amp;#34;Properties&amp;#34; : { &amp;#34;Action&amp;#34; : &amp;#34;lambda:InvokeFunction&amp;#34;, &amp;#34;FunctionName&amp;#34; : &amp;#34;workshopphotoprocessor&amp;#34;, &amp;#34;Principal&amp;#34; : &amp;#34;s3.</description>
+    </item>
+    
+    <item>
+      <title>사진을 검색할 수 있게 만들기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/20_prep_for_searching.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/20_prep_for_searching.html</guid>
+      <description>GraphQL 스키마 갱신하기 이제 각 사진의 레이블을 저장할 수 있으니, AppSync API를 통해 이 데이터를 노출할 준비가 되었습니다.
+DynamoDB 쿼리로 검색하는 방법도 가능하지만, Amazon Elasticsearch Service를 사용하여 데이터를 색인하고 검색 쿼리를 다루는 방식이 좀 더 유연하고 효율적입니다. 다행이 Amplify CLI는 매우 쉽게 Amazon Elasticsearch 엔드포인트를 생성하고 앱 데이터와 연결합니다.
+ photo-albums/amplify/backend/api/photoalbums/schema.graphql 을 다음 내용으로 변경합니다. # amplify/backend/api/photo-albums/schema.graphql type Album @model @auth(rules: [{allow: owner}]) { id: ID! name: String! photos: [Photo] @connection(name: &amp;#34;AlbumPhotos&amp;#34;) } type Photo @model @auth(rules: [{allow: owner}]) @searchable {  id: ID!</description>
     </item>
     
     <item>
@@ -197,7 +204,9 @@ AWS AppSync의 대화형 쿼리 실행 영역인 이곳에서 쿼리를 작성�
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/20_getting_started/20_bootstrapping_the_app.html</guid>
       <description>리액트(React) 앱 만들기 create-react-app CLI로 새로운 리액트 웹 앱을 제작하며 시작하겠습니다.
-이는 로컬에서 자동으로 다시 서버를 띄워주는 리액트 샘플 앱과 브라우저에서 async/await 문법, 화살표 함수 등을 지원하도록 트랜스 컴파일 기능을 제공합니다.  create-react-app은 [https://github.com/facebook/create-react-app](https://github.com/facebook/create-react-app)에서 좀 더 배울 수 있습니다.  Cloud9 터미널에서 npx create-react-app photo-albums를 실행하시고 새로 생성된 디렉토리로 이동합니다 cd photo-albums
+이는 로컬에서 자동으로 다시 서버를 띄워주는 리액트 샘플 앱과 브라우저에서 async/await 문법, 화살표 함수 등을 지원하도록 트랜스 컴파일 기능을 제공합니다.
+ create-react-app은 https://github.com/facebook/create-react-app에서 좀 더 배울 수 있습니다.
+ Cloud9 터미널에서 npx create-react-app photo-albums를 실행하시고 새로 생성된 디렉토리로 이동합니다 cd photo-albums
 시멘틱 UI 리액트 추가하기 UI를 작성하기 전에 인터페이스를 좀 더 근사하게 만들수 있는 리액트의 시멘틱 UI 컴포넌트를 추가합니다.</description>
     </item>
     
@@ -220,19 +229,9 @@ Amplify NPM 종속성 추가 아직 aws-amplify, aws-amplify-react 모듈을 앱
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/60_managing_photos/30_adding_storage.html</guid>
       <description>앨범에 업로드한 모든 사진들을 보관할 저장소가 필요합니다. Amazon Simple Storage Service (S3)는 이를 위한 좋은 서비스이기도 하고 Amplify의 스토리지 모듈을 이용하면 S3에 대한 설정과 작업이 아주 쉽습니다.
-Amplify 스토리지 모듈에 대해 다음 자료를 참고하세요. [here](https://aws-amplify.github.io/amplify-js/media/storage_guide).  스토리지 구성 및 추가 먼저, Amplify CLI로 어플리케이션의 스토리지를 활성화 합니다. 이 작업은 Amazon S3에 Bucket을 생성하고 앱에 로그인한 사용자들이 버킷을 읽고 쓸수 있는 적잘한 권한을 설정해 줍니다.
+Amplify 스토리지 모듈에 대해 다음 자료를 참고하세요. here.
+ 스토리지 구성 및 추가 먼저, Amplify CLI로 어플리케이션의 스토리지를 활성화 합니다. 이 작업은 Amazon S3에 Bucket을 생성하고 앱에 로그인한 사용자들이 버킷을 읽고 쓸수 있는 적잘한 권한을 설정해 줍니다.
  사진앨범 디렉토리에서 다음 명령어를 수행합니다.</description>
-    </item>
-    
-    <item>
-      <title>Searching Photos By Label</title>
-      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/40_searching_for_labels.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/40_searching_for_labels.html</guid>
-      <description>With all of the back-end work completed, now we just need to update our web app to allow searching for photos by label.
-Let&amp;rsquo;s create a new Search component and add it to the App component to be rendered on the root path. For rendering all of the matching photos in the Search component, we&amp;rsquo;ll re-use the PhotosList component we already created.
-Replace photo-albums/src/App.js with the following: // photo-albums/src/App.js  import React, { Component } from &amp;#39;react&amp;#39;; import {BrowserRouter as Router, Route, NavLink} from &amp;#39;react-router-dom&amp;#39;; import { Divider, Form, Grid, Header, Input, List, Segment } from &amp;#39;semantic-ui-react&amp;#39;; import {v4 as uuid} from &amp;#39;uuid&amp;#39;; import { Connect, S3Image, withAuthenticator } from &amp;#39;aws-amplify-react&amp;#39;; import Amplify, { API, graphqlOperation, Storage } from &amp;#39;aws-amplify&amp;#39;; import aws_exports from &amp;#39;.</description>
     </item>
     
     <item>
@@ -242,18 +241,30 @@ Replace photo-albums/src/App.js with the following: // photo-albums/src/App.js  
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/60_managing_photos/40_upload_photos_consolidated.html</guid>
       <description>사진을 저장할수 있는 S3 bucket이 생겼으니 사진을 버킷에 사진을 업로드 하도록 도와줄 UI가 필요합니다. 그리고 앨범에 속한 모든 사진들을 로드 하기 위해서 사진들이 앨범에서 어떤 특정 부분에 속하는지 추적 할수 있어야 합니다.
-새로운 S3ImageUpload 컴포넌트를 만들어 봅시다. 이 컴포넌트는 사용자가 사진을 선택할때 이벤트 핸들러를 실행시키는 input 엘리먼트를 가진 HTML 파일을 포함합니다. 업로드 이벤트 핸들러는 사진이 포함될 앨범이 무엇인지 설명해주는 주석을 가진 메타데이터가 있는 파일을 S3에 업로드 합니다. 다행히 [Amplify JS Storage module](https://aws-amplify.</description>
+새로운 S3ImageUpload 컴포넌트를 만들어 봅시다. 이 컴포넌트는 사용자가 사진을 선택할때 이벤트 핸들러를 실행시키는 input 엘리먼트를 가진 HTML 파일을 포함합니다. 업로드 이벤트 핸들러는 사진이 포함될 앨범이 무엇인지 설명해주는 주석을 가진 메타데이터가 있는 파일을 S3에 업로드 합니다. 다행히 Amplify JS Storage module은, S3에 파일업로드 작업을 매우 쉽게 할 수 있습니다.</description>
     </item>
     
     <item>
-      <title>Deploying our app to S3</title>
+      <title>사진을 레이블로 검색하기</title>
+      <link>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/40_searching_for_labels.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/110_ai/40_searching_for_labels.html</guid>
+      <description>백엔드 작업이 완료되었으니 이제 사진을 레이블로 검색할 수 있게 하겠습니다.
+새 Search 컴포넌트를 생성하고 App 컴포넌트에 루트 경로로 표시되도록 추가합니다. Search 컴포넌트에서 검색된 모든 사진을 표시하기위해 이미 생성한 PhotoList 컴포넌트를 재사용합니다.
+photo-albums/src/App.js을 다음 내용으로 변경합니다. // photo-albums/src/App.js  import React, { Component } from &amp;#39;react&amp;#39;; import {BrowserRouter as Router, Route, NavLink} from &amp;#39;react-router-dom&amp;#39;; import { Divider, Form, Grid, Header, Input, List, Segment } from &amp;#39;semantic-ui-react&amp;#39;; import {v4 as uuid} from &amp;#39;uuid&amp;#39;; import { Connect, S3Image, withAuthenticator } from &amp;#39;aws-amplify-react&amp;#39;; import Amplify, { API, graphqlOperation, Storage } from &amp;#39;aws-amplify&amp;#39;; import aws_exports from &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>S3에 앱 배포하기</title>
       <link>https://awskrug.github.io/amplify-photo-gallery-workshop/120_deploying/10_deploying.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://awskrug.github.io/amplify-photo-gallery-workshop/120_deploying/10_deploying.html</guid>
-      <description>Before we build and publish our app, we should free up some memory on the Cloud9 instance. If you&amp;rsquo;re using a micro Cloud9 instance size, there&amp;rsquo;s a good chance there won&amp;rsquo;t be enough memory available to keep our development web server running and to create a production build.
- Go to the terminal tab that&amp;rsquo;s running the development webserver (where you ran npm start)
- Press Control-C to interrupt the development webserver and kill it.</description>
+      <description>우리가 앱을 구축 및 배포하기 전에, 우리는 Cloud9 인스턴스의 일부 메모리를 사용할 수 있도록 해야합니다. 만약 여러분께서 Cloud9 인스턴스 타입을 micro를 사용한다면 개발 웹서버 구동을 지속하고 프로덕션을 구축할 수 있는 충분한 메모리가 없기때문에 여기 좋은 기회입니다.
+ 개발 웹서버를 구동하고 있는 터미널 탭으로 이동합니다. (*npm start*를 실행했던 터미널입니다)
+ 개발 웹서버를 중단하고 프로세스를 죽일 수 있도록 Control-C 단축키를 누릅니다.
+  AWS Amplify CLI는 우리의 앱을 공개적으로 접근가능한 S3 버킷으로 배포하는 것을 쉽게 만들어줍니다.</description>
     </item>
     
   </channel>
